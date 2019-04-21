@@ -20,7 +20,7 @@ import logging
 
 def get_stdout_logging(
     log_level=logging.INFO,
-    log_msg_fmt="%(asctime)s %(levelname)s %(message)s",
+    log_msg_fmt="%(asctime)s.%(msecs)03d %(levelname)s %(message)s",
     log_date_fmt="%a, %d %b %Y %H:%M:%S",
     log_prefix=None,
 ):
@@ -41,7 +41,7 @@ def get_stdout_logging(
         >>> logging =\
             get_stdout_logging(
                 log_level=logging.DEBUG,
-                prefix='[test_script]: '',
+                log_prefix='[test_script]: '',
             )
     """
 
