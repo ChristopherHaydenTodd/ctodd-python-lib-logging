@@ -1,8 +1,6 @@
-# Christopher H. Todd's PROJECT_STRING_NAME
+# Christopher H. Todd's Python Library For Configuring Logging
 
-The PROJECT_GIT_NAME project is responsible for ...
-
-The library ...
+The ctodd-python-lib-logging project is responsible for configuring the logging for python scripts. Will set up the level, format of the messages, and the stream.
 
 ## Table of Contents
 
@@ -16,18 +14,90 @@ The library ...
 
 ### Python Packages
 
--
+- N/A
 
 ## Libraries
 
-### [filename](link_to_file)
+### [loggers.py](https://github.com/ChristopherHaydenTodd/ctodd-python-lib-logging/blob/master/logging_helpers/loggers.py)
 
-DOCSTRING_OF_FILE
+Library for getting loggers of specific configurations in Python. This will utilize Pythons built-in logging library and will return an instance of logging that can be implemented in any code that already implements the logging class.
 
 Functions:
 
 ```
-function def and DOCSTRING
+def get_stdout_logging(
+    log_level=logging.INFO,
+    log_msg_fmt="%(asctime)s.%(msecs)03d %(levelname)s %(message)s",
+    log_date_fmt="%a, %d %b %Y %H:%M:%S",
+    log_prefix=None,
+):
+    """
+    Purpose:
+        Get Logger to standard out.
+    Args:
+        log_level (log level from logging): Minimum level for messages to log
+        log_msg_fmt (String): Mesage format for all logs with variable
+            substitution for known logging options
+        log_date_fmt (Stringg): Dateformat to append to message
+        log_prefix (String): prefix to append to message
+    Return:
+        logging (Python logging object): Configured logging object
+    Examples:
+        >>> logging = get_stdout_logging()
+        or
+        >>> logging =\
+            get_stdout_logging(
+                log_level=logging.DEBUG,
+                log_prefix='[test_script]: '',
+            )
+    """
+```
+
+```
+def get_file_logger(
+    log_file=None,
+    log_filemode="a",
+    log_level=logging.INFO,
+    log_msg_fmt="%(asctime)s %(levelname)s %(message)s",
+    log_date_fmt="%a, %d %b %Y %H:%M:%S",
+    log_prefix=None,
+):
+    """
+    Purpose:
+        Get Logger to file
+    Args:
+        log_level (log level from logging): Minimum level for messages to log
+        log_msg_fmt (String): Mesage format for all logs with variable
+            substitution for known logging options
+        log_date_fmt (Stringg): Dateformat to append to message
+        log_prefix (String): prefix to append to message
+    Return:
+        logging (Python logging object): Configured logging object
+    Examples:
+        >>> logging = get_file_logger()
+        or
+        >>> logging =\
+            get_file_logger(
+                log_level=logging.ERROR,
+                prefix='[test_script]: '',
+                log_file='./script_im_writing.log'
+            )
+    """
+```
+
+```
+def clear_log_handlers():
+    """
+    Purpose:
+        Remove previous log handlers and configurations. This
+        will ensure that any new logging that is configured
+        will take precedence, as logging is first setting
+        is not overwritten.
+    Args:
+        N/A
+    Return:
+        N/A
+    """
 ```
 
 ## Example Scripts
