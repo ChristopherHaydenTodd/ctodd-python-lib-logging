@@ -104,10 +104,10 @@ def clear_log_handlers():
 
 Example executable Python scripts/modules for testing and interacting with the library. These show example use-cases for the libraries and can be used as templates for developing with the libraries or to use as one-off development efforts.
 
-### [filename](link_to_file)
+### [example_stdout_logger.py](https://github.com/ChristopherHaydenTodd/ctodd-python-lib-logging/blob/master/example_usage/example_stdout_logger.py)
 
 ```
-DOCSTRING
+Example Logger. Configure to Output to CLI
 ```
 
 ## Notes
